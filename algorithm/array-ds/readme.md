@@ -22,13 +22,9 @@ Print all **N** integers in **A** in reverse order as a single line of space-sep
 
 ### Sample Input
 
-```
-4
-1 4 3 2
-```
+	4
+	1 4 3 2
 
 ### Sample Output
 
-```
-2 3 4 1
-```
+	2 3 4 1

@@ -30,16 +30,12 @@ Print two space-separated integers denoting the respective comparison points ear
 
 ### Sample Input
 
-```
-5 6 7
-3 6 10
-```
+	5 6 7
+	3 6 10
 
 ### Sample Output
 
-```
-1 1 
-```
+	1 1 
 
 ### Explanation
 

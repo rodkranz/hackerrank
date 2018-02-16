@@ -17,16 +17,12 @@ sum of the above two integers
 
 ### Sample Input
 
-```
-x = 2
-y = 3
-```
+	x = 2
+	y = 3
 
 ### Sample Output
 
-```
-5
-```
+	5
 
 ### Explanation
 

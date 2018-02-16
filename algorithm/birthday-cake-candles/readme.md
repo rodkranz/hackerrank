@@ -23,16 +23,12 @@ Print the number of candles the can be blown out on a new line.
 
 ### Sample Input 0
 
-```
-4
-3 2 1 3
-```
+	4
+	3 2 1 3
 
 ### Sample Output 0
 
-```
-2
-```
+	2
 
 ### Explanation 0
 
