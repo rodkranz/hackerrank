@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"sort"
 )
 
 func main() {
@@ -10,53 +11,45 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	
+
 	min, max := calc(nuns)
 	fmt.Printf("%v %v\n", min, max)
 }
 
-func calc(nuns []int64) (int64, int64) {
-	var max int64 = 0
-	var min int64 = 0
-	
-	for i := range nuns {
-		var calc int64 = 0
-		for n := 0; n < len(nuns); n++ {
-			if n == i {
-				continue
-			}
-			calc += nuns[n]
-		}
-		
-		if max == 0 || calc < min {
-			min = calc
-		}
-		if min == 0 || calc > max {
-			max = calc
-		}
+func calc(nuns []int) (int, int) {
+	sort.Ints(nuns)
+
+	max := 0
+	min := 0
+
+	for i, n := 0, len(nuns)-1; i < len(nuns)-1; i++ {
+		min += nuns[i]
+		max += nuns[n]
+
+		n -= 1
 	}
-	
+
 	return min, max
 }
 
 const (
-	ConstraintsNumMin int64 = 1
-	ConstraintsNumMax int64 = 1000000000
+	constNumMin = 1
+	constNumMax = 1000000000
 )
 
-func readNumbers() ([]int64, error) {
-	numbers := make([]int64, 5)
+func readNumbers() ([]int, error) {
+	numbers := make([]int, 5)
 	for i := range numbers {
 		_, err := fmt.Scanf("%d", &numbers[i])
 		if err != nil {
 			return nil, err
 		}
-		
+
 		switch {
-		case numbers[i] > ConstraintsNumMax:
-			return nil, fmt.Errorf("the maximum value is %d", ConstraintsNumMax)
-		case numbers[i] < ConstraintsNumMin:
-			return nil, fmt.Errorf("the minimum value is %d", ConstraintsNumMin)
+		case numbers[i] > constNumMax:
+			return nil, fmt.Errorf("the maximum value is %d", constNumMax)
+		case numbers[i] < constNumMin:
+			return nil, fmt.Errorf("the minimum value is %d", constNumMin)
 		}
 	}
 	return numbers, nil
